@@ -10,4 +10,18 @@
 	    android:layout_height="wrap_content"
 	    android:text="Button 1"
 	    />
+
+	<Button
+	    android:id="@+id/button_next"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Next Activity"
+	    />
+
+	<Button
+	    android:id="@+id/button_douban"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Douban"
+	    />
 </LinearLayout>
