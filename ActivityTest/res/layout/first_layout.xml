@@ -31,5 +31,12 @@
 	    android:layout_height="wrap_content"
 	    android:text="@string/dial_cmcc"
 	    />
+	
+	<Button
+	    android:id="@+id/button_self"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Self"
+	    />
 
 </LinearLayout>

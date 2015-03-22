@@ -18,6 +18,8 @@ public class FirstActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.d("FirstActivity", this.toString());
+		Log.d("FirstActivity", "Task id is " + getTaskId());
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.first_layout);
 		
@@ -65,6 +67,16 @@ public class FirstActivity extends Activity {
 				startActivity(intent);
 			}
 		});
+
+		Button btn_self = (Button)findViewById(R.id.button_self);
+		
+		btn_self.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(FirstActivity.this, FirstActivity.class);
+				startActivity(intent);
+			}
+		});	
 	}
 	
 	@Override

@@ -18,4 +18,18 @@
 	    android:text="Exit Activity"
 	    />
 
+	<Button
+	    android:id="@+id/button_back"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="Back to First Activity"
+	    />
+	
+	<Button
+	    android:id="@+id/button_3rd"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:text="To Third Activity"
+	    />
+	
 </LinearLayout>

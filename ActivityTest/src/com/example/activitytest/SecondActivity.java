@@ -15,6 +15,8 @@ public class SecondActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		Log.d("SecondActivity", this.toString());
+		Log.d("SecondActivity", "Task id is " + getTaskId());
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.second_layout);
 		
@@ -37,6 +39,31 @@ public class SecondActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				ExitActivity();
+			}
+			
+		});
+
+	
+		Button btn_back = (Button)findViewById(R.id.button_back);
+		
+		btn_back.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(SecondActivity.this, FirstActivity.class);
+				startActivity(intent);
+			}
+			
+		});
+
+		Button btn_3rd = (Button)findViewById(R.id.button_3rd);
+		
+		btn_3rd.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View arg0) {
+				Intent intent = new Intent(SecondActivity.this, ThirdActivity.class);
+				startActivity(intent);
 			}
 			
 		});
