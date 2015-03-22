@@ -1,22 +1,17 @@
 package com.example.activitytest;
 
 import android.app.Activity;
-
 import android.content.Intent;
-
 import android.net.Uri;
 import android.os.Bundle;
-
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-
 import android.widget.Button;
 import android.widget.Toast;
-
-
 
 public class FirstActivity extends Activity {
 
@@ -43,7 +38,9 @@ public class FirstActivity extends Activity {
 //				Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
 				Intent intent = new Intent("com.example.activitytest.ACTION_START");
 				intent.addCategory("com.example.activitytest.MY_CATEGORY");
-				startActivity(intent);
+				intent.putExtra("extra_data", "Hello secondActivity");
+//				startActivity(intent);
+				startActivityForResult(intent, 1);
 			}
 		});
 
@@ -57,7 +54,18 @@ public class FirstActivity extends Activity {
 				startActivity(intent);
 			}
 		});
-}
+
+		Button btn_dial = (Button)findViewById(R.id.button_dial);
+		
+		btn_dial.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(Intent.ACTION_DIAL);
+				intent.setData(Uri.parse("tel:10086"));
+				startActivity(intent);
+			}
+		});
+	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
@@ -80,5 +88,18 @@ public class FirstActivity extends Activity {
 		default:				
 		}
 		return true;
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		switch (requestCode) {
+		case 1:
+			if (resultCode == RESULT_OK) {
+				String returnedData = data.getStringExtra("data_return");
+				Log.d("FirstActivity", returnedData);
+			}
+			break;
+		default:
+		}
 	}
 }

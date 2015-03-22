@@ -1,5 +1,5 @@
 <resources>
 
     <string name="app_name">ActivityTest</string>
-
+	<string name="dial_cmcc">10086</string>
 </resources>
