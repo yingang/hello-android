@@ -1,11 +1,13 @@
 package com.example.activitytest;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 
-public class ThirdActivity extends Activity {
+public class ThirdActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,6 +16,15 @@ public class ThirdActivity extends Activity {
 		Log.d("ThirdActivity", "Task id is " + getTaskId());
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.third_layout);
+		
+		Button btn3 = (Button)findViewById(R.id.button_3);
+		
+		btn3.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				ActivityCollector.finishAll();
+			}
+		});
 	}
 
 }

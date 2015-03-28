@@ -1,6 +1,5 @@
 package com.example.activitytest;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -13,7 +12,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends Activity {
+public class FirstActivity extends BaseActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +37,10 @@ public class FirstActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 //				Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+//				startActivity(intent);
 				Intent intent = new Intent("com.example.activitytest.ACTION_START");
 				intent.addCategory("com.example.activitytest.MY_CATEGORY");
 				intent.putExtra("extra_data", "Hello secondActivity");
-//				startActivity(intent);
 				startActivityForResult(intent, 1);
 			}
 		});
@@ -76,7 +75,16 @@ public class FirstActivity extends Activity {
 				Intent intent = new Intent(FirstActivity.this, FirstActivity.class);
 				startActivity(intent);
 			}
-		});	
+		});
+		
+		Button btn_next2 = (Button)findViewById(R.id.button_next2);
+		
+		btn_next2.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				SecondActivity.actionStart(FirstActivity.this, "data to actionStart");
+			}
+		});
 	}
 	
 	@Override
