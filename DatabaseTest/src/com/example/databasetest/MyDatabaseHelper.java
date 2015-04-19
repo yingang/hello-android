@@ -22,6 +22,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 			+ "category_name text,"
 			+ "category_code integer)";
 	
+	@SuppressWarnings("unused")
 	private Context context;
 	
 	public MyDatabaseHelper(Context context, String name,
@@ -34,7 +35,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		db.execSQL(CREATE_BOOK);
 		db.execSQL(CREATE_CATEGORY);
-		Toast.makeText(context, "Create succeeded", Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context, "Create succeeded", Toast.LENGTH_SHORT).show();
 	}
 
 	@Override
@@ -52,7 +53,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 		default:
 		}
 		
-		Toast.makeText(context, "Update succeeded", Toast.LENGTH_SHORT).show();
+//		Toast.makeText(context, "Update succeeded", Toast.LENGTH_SHORT).show();
 	}
 
 }

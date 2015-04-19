@@ -112,11 +112,10 @@ public class MainActivity extends Activity {
 		Button btn_replace = (Button) findViewById(R.id.replace_data);
 		btn_replace.setOnClickListener(new OnClickListener() {
 
+			@SuppressWarnings("unused")
 			@Override
 			public void onClick(View v) {
 				SQLiteDatabase db = dbHelper.getWritableDatabase();
-				
-				Cursor cursor = db.query("Book", null, null, null, null, null, null);
 				
 				db.beginTransaction();
 				
