@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity implements OnClickListener {
 	
@@ -16,6 +18,7 @@ public class MainActivity extends Activity implements OnClickListener {
 	private Button stopService;
 	private Button bindService;
 	private Button unbindService;
+	private Button startIntentService;
 	
 	private MyService.DownloadBinder downloadBinder;
 	
@@ -52,6 +55,9 @@ public class MainActivity extends Activity implements OnClickListener {
 		
 		bindService.setOnClickListener(this);
 		unbindService.setOnClickListener(this);
+		
+		startIntentService = (Button) findViewById(R.id.start_intent_service);
+		startIntentService.setOnClickListener(this);
 	}
 
 	@Override
@@ -72,10 +78,18 @@ public class MainActivity extends Activity implements OnClickListener {
 		case R.id.unbind_service:
 			unbindService(connection);
 			break;
+		case R.id.start_intent_service:
+			logAndToast("[MAIN] Thread id is " + Thread.currentThread().getId());
+			Intent intentService = new Intent(this, MyIntentService.class);
+			startService(intentService);
+			break;
 		default:
 			break;
 		}
 	}
 
-
+	private void logAndToast(String msg) {
+		Toast.makeText(getBaseContext(), msg, Toast.LENGTH_SHORT).show();
+		Log.d("MainActivity", msg);
+	}
 }

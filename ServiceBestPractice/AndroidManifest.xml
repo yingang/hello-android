@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.servicetest"
+    package="com.example.servicebestpractice"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -23,11 +23,14 @@
             </intent-filter>
         </activity>
         
-        <service android:name=".MyService">
+        <service android:name=".LongRunningService">
             
         </service>
         
-        <service android:name=".MyIntentService"></service>
+        <receiver android:name=".AlarmReceiver">
+            
+        </receiver>
+        
     </application>
 
 </manifest>
