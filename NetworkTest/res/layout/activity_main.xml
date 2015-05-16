@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+	android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/send_request"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request with HTTP connection" />
+    
+    <Button
+        android:id="@+id/send_request_http_client"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request with HTTP client" />
+    
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+        
+        <TextView
+            android:id="@+id/response_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        
+    </ScrollView>
+
+</LinearLayout>
