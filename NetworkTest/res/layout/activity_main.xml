@@ -16,6 +16,30 @@
         android:layout_height="wrap_content"
         android:text="Send Request with HTTP client" />
     
+    <Button
+        android:id="@+id/send_request_for_xml"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request for XML" />
+    
+    <Button
+        android:id="@+id/send_request_for_xml_with_sax"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request for XML with SAX" />
+    
+    <Button
+        android:id="@+id/send_request_for_json"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request for JSON" />
+    
+    <Button
+        android:id="@+id/send_request_for_json_with_gson"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Request for JSON with GSON" />
+    
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
