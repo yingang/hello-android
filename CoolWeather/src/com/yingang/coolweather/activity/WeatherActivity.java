@@ -1,7 +1,7 @@
 package com.yingang.coolweather.activity;
 
 import com.yingang.coolweather.R;
-//import com.yingang.coolweather.service.AutoUpdateService;
+import com.yingang.coolweather.service.AutoUpdateService;
 import com.yingang.coolweather.util.HttpCallbackListener;
 import com.yingang.coolweather.util.HttpUtil;
 import com.yingang.coolweather.util.Utility;
@@ -30,8 +30,8 @@ public class WeatherActivity extends Activity implements OnClickListener{
 	private TextView temp2Text;
 	private TextView currentDateText;
 
-//	private Button switchCity;
-//	private Button refreshWeather;
+	private Button switchCity;
+	private Button refreshWeather;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -46,8 +46,12 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		temp1Text = (TextView) findViewById(R.id.temp1);
 		temp2Text = (TextView) findViewById(R.id.temp2);
 		currentDateText = (TextView) findViewById(R.id.current_date);
-//		switchCity = (Button) findViewById(R.id.switch_city);
-//		refreshWeather = (Button) findViewById(R.id.refresh_weather);
+
+		switchCity = (Button) findViewById(R.id.switch_city);
+		refreshWeather = (Button) findViewById(R.id.refresh_weather);
+		switchCity.setOnClickListener(this);
+		refreshWeather.setOnClickListener(this);
+
 		String countyCode = getIntent().getStringExtra("county_code");
 		if (!TextUtils.isEmpty(countyCode)) {
 			publishText.setText("同步中...");
@@ -57,30 +61,28 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		} else {
 			showWeather();
 		}
-//		switchCity.setOnClickListener(this);
-//		refreshWeather.setOnClickListener(this);
 	}
 	
 	@Override
 	public void onClick(View v) {
-//		switch (v.getId()) {
-//		case R.id.switch_city:
-//			Intent intent = new Intent(this, ChooseAreaActivity.class);
-//			intent.putExtra("from_weather_activity", true);
-//			startActivity(intent);
-//			finish();
-//			break;
-//		case R.id.refresh_weather:
-//			publishText.setText("鍚屾涓�..");
-//			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-//			String weatherCode = prefs.getString("weather_code", "");
-//			if (!TextUtils.isEmpty(weatherCode)) {
-//				queryWeatherInfo(weatherCode);
-//			}
-//			break;
-//		default:
-//			break;
-//		}
+		switch (v.getId()) {
+		case R.id.switch_city:
+			Intent intent = new Intent(this, ChooseAreaActivity.class);
+			intent.putExtra("from_weather_activity", true);
+			startActivity(intent);
+			finish();
+			break;
+		case R.id.refresh_weather:
+			publishText.setText("同步中...");
+			SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+			String weatherCode = prefs.getString("weather_code", "");
+			if (!TextUtils.isEmpty(weatherCode)) {
+				queryWeatherInfo(weatherCode);
+			}
+			break;
+		default:
+			break;
+		}
 	}
 	
 	private void queryWeatherCode(String countyCode) {
@@ -138,8 +140,8 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		currentDateText.setText(prefs.getString("current_date", ""));
 		weatherInfoLayout.setVisibility(View.VISIBLE);
 		cityNameText.setVisibility(View.VISIBLE);
-//		Intent intent = new Intent(this, AutoUpdateService.class);
-//		startService(intent);
+		Intent intent = new Intent(this, AutoUpdateService.class);
+		startService(intent);
 	}
 
 }

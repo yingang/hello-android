@@ -25,6 +25,8 @@
         <activity
             android:name="com.yingang.coolweather.activity.WeatherActivity" >
         </activity>
+        <service android:name="com.yingang.coolweather.service.AutoUpdateService"></service>
+        <receiver android:name="com.yingang.coolwearther.receiver.AutoUpdateService"></receiver>
     </application>
 
 </manifest>
