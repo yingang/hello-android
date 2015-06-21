@@ -74,7 +74,7 @@ public class Utility {
 		}
 		return false;
 	}
-/*
+
 	public static void handleWeatherResponse(Context context, String response) {
 		try {
 			JSONObject jsonObject = new JSONObject(response);
@@ -108,5 +108,5 @@ public class Utility {
 		editor.putString("current_date", sdf.format(new Date()));
 		editor.commit();
 	}
-*/
+
 }
